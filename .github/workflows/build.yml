@@ -34,7 +34,7 @@ jobs:
         run: |
           mkdir build
           cmake -D NIGHTLY_BUILD=ON -D GIT_HASH=$(git rev-parse --short=7 HEAD) -S . -B build
-          cmake --build build --target HITszConnectForWindows --config Release
+          cmake --build build --target HITSZConnectForWindows --config Release
 
       - name: Build release
         if: github.event_name == 'release'
@@ -42,30 +42,30 @@ jobs:
           $VER = "${{ github.event.release.tag_name }}".substring(1)
           mkdir build
           cmake -D NIGHTLY_BUILD=OFF -D REL_VER=$VER -S . -B build
-          cmake --build build --target HITszConnectForWindows --config Release
+          cmake --build build --target HITSZConnectForWindows --config Release
 
       - name: Download and copy files
         env:
           VCINSTALLDIR: 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC'
         run: |
-          mkdir "HITsz Connect for Windows"
-          cd "HITsz Connect for Windows"
-          cp ../build/Release/HITszConnectForWindows.exe .
-          windeployqt.exe HITszConnectForWindows.exe
+          mkdir "HITSZ Connect for Windows"
+          cd "HITSZ Connect for Windows"
+          cp ../build/Release/HITSZConnectForWindows.exe .
+          windeployqt.exe HITSZConnectForWindows.exe
           rm vc_redist.x64.exe
           curl -LO https://github.com/Mythologyli/zju-connect/releases/latest/download/zju-connect-windows-amd64.zip
           tar -xf zju-connect-windows-amd64.zip
           rm zju-connect-windows-amd64.zip
           cp ../libs/wintun/bin/amd64/wintun.dll .
           cd ..
-          Compress-Archive -Path "HITsz Connect for Windows" -DestinationPath HITsz-Connect-for-Windows.zip
-          Get-FileHash HITsz-Connect-for-Windows.zip | Format-List | Out-File -FilePath SHA256.txt
+          Compress-Archive -Path "HITSZ Connect for Windows" -DestinationPath HITSZ-Connect-for-Windows.zip
+          Get-FileHash HITSZ-Connect-for-Windows.zip | Format-List | Out-File -FilePath SHA256.txt
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: HITsz-Connect-for-Windows
-          path: HITsz-Connect-for-Windows.zip
+          name: HITSZ-Connect-for-Windows
+          path: HITSZ-Connect-for-Windows.zip
 
       - name: Upload SHA256.txt
         uses: actions/upload-artifact@v4
@@ -78,5 +78,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
-          gh release upload ${{ github.event.release.tag_name }} HITsz-Connect-for-Windows.zip
+          gh release upload ${{ github.event.release.tag_name }} HITSZ-Connect-for-Windows.zip
           gh release upload ${{ github.event.release.tag_name }} SHA256.txt

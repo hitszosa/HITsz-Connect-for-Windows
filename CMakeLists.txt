@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.12)
-project(HITszConnectForWindows)
+project(HITSZConnectForWindows)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_AUTOMOC ON)

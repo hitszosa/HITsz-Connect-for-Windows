@@ -1,6 +1,6 @@
-# HITsz Connect for Windows
+# HITSZ Connect for Windows
 
-![Github Action](https://github.com/chenx-dust/HITsz-Connect-for-Windows/actions/workflows/build.yml/badge.svg)
+![Github Action](https://github.com/chenx-dust/HITSZ-Connect-for-Windows/actions/workflows/build.yml/badge.svg)
 
 针对哈工大深圳的修改版 ZJU-Connect-for-Windows
 
