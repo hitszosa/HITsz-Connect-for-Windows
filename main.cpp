@@ -11,8 +11,8 @@
 int main(int argc, char *argv[])
 {
     SingleApplication app(argc, argv);
-    QApplication::setApplicationName("HITsz Connect for Windows");
-    QApplication::setApplicationDisplayName("HITsz Connect for Windows");
+    QApplication::setApplicationName("HITSZ Connect for Windows");
+    QApplication::setApplicationDisplayName("HITSZ Connect for Windows");
     QApplication::setApplicationVersion(PROJ_VER);
 
     // 愚人节彩蛋

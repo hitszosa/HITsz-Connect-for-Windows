@@ -285,7 +285,7 @@ void MainWindow::upgradeSettings()
                 );
 
                 // 删除旧版自启动项
-                autoStartSettings.remove("HITszConnectForWindows");
+                autoStartSettings.remove("HITSZConnectForWindows");
             }
         }
 
