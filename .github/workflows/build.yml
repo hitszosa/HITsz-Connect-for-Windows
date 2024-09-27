@@ -7,7 +7,7 @@ on:
       branches: [ master ]
     pull_request:
       branches: [ master ]
-    workflow_dispacth:
+    workflow_dispatch:
 
 permissions: write-all
 
